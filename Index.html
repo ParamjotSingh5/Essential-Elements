@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodic Table Sorting</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Periodic Table</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">                    
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="card ">
+            <h3 class="card-header">Sorting</h3>
+            <div class="card-body">
+              <h5 class="card-title">Sort Element By Their Properties.</h5>
+              <p class="card-text">Select one of the following button to sort the elements accordingly.</p>
+              <div>
+                <button class="btn" style="background-color: #4DFFF3;" onclick="sortElementsButtonClick(0)">Atomic Symbol</button>
+                <button class="btn" style="background-color: #52FFB8;" onclick="sortElementsButtonClick(1)">Atomic Mass</button>
+                <button class="btn" style="background-color: #539987;" onclick="sortElementsButtonClick(2)">Atomic Denisity</button>
+                <button class="btn" style="background-color: #EFB0A1;" onclick="sortElementsButtonClick(3)">Atomic Number</button>                
+                <button class="btn" style="background-color: #7FB685;" onclick="sortElementsButtonClick(4)">Discovery Year</button>                
+              </div>
+            </div>
+        </div>
+        <br/>
+
+        <div class="row">
+            <div class="column">
+                <div class="containerCustom">        
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - List Member - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>   
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->    
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBf2yv8H1eINwhV7TIKQ31l8LAyVTHbPNY",
+        authDomain: "https://elements-13c4a-default-rtdb.firebaseio.com/",
+        projectId: "elements-13c4a",
+        storageBucket: "elements-13c4a.appspot.com",
+        messagingSenderId: "447148203295",
+        appId: "1:447148203295:web:d1f64932b0fb3d83bda42a"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="main.js" ></script>
+</body>
+</html>

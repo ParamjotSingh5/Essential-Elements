@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Element</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Add New Element</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">                    
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <form class="AddElement">
+            <div class="form-group">
+              <label for="Nametxt">Name</label>
+              <input type="text" class="form-control" id="Nametxt" required placeholder="Enter element name">                          
+            </div>
+            <div class="form-group">
+              <label for="Symboltxt">Symbol</label>
+              <input type="text" class="form-control" id="Symboltxt" required aria-describedby="elementSymbolDescribe" placeholder="Enter element symbol">
+              <small id="elementSymbolDescribe" class="form-text text-muted">Provide Element symbol, like Na for Sodium, K for Potassium.</small>
+            </div>
+            <div class="form-group">
+                <label for="AtomicNumbertxt">Atomic Number</label>
+                <input type="text" class="form-control" id="AtomicNumbertxt" required placeholder="Enter atomic number">                
+            </div>
+            <div class="form-group">
+                <label for="AtomicMasstxt">Atomic Mass</label>
+                <input type="Text" class="form-control" id="AtomicMasstxt" required placeholder="Enter atomic mass">                
+            </div>
+            <div class="form-group">
+                <label for="Densitytxt">Density (at STP)</label>
+                <input type="Text" class="form-control" id="Densitytxt" required aria-describedby="elementDensityDescribe" placeholder="Enter Density at STP">                
+                <small id="elementDensityDescribe" class="form-text text-muted">STP : Standard temperature and pressure are standard sets of
+                     conditions for experimental measurements to be established to allow comparisons to be made between different sets of data.
+                    <a href="https://en.wikipedia.org/wiki/Standard_conditions_for_temperature_and_pressure">More on STP</a>
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="MeltingPointtxt">Melting Point</label>
+                <input type="Text" class="form-control" id="MeltingPointtxt" required placeholder="Enter Melting Point">                
+            </div>
+            <div class="form-group">
+                <label for="BoilingPointtxt">Boiling Point</label>
+                <input type="Text" class="form-control" id="BoilingPointtxt" required placeholder="Enter Boiling Point">                
+            </div>
+            <div class="form-group">
+                <label for="Isotopstxt">Isotops</label>
+                <input type="Text" class="form-control" id="Isotopstxt" required placeholder="Enter Found Isotops Count">                
+            </div>
+            <div class="form-group">
+                <label for="DiscoveredBytxt">Discovered by</label>
+                <input type="Text" class="form-control" id="DiscoveredBytxt" required placeholder="Enter Discovered by">                
+            </div>
+            <div class="form-group">
+                <label for="Appearancetxt">Appearance</label>
+                <input type="Text" class="form-control" id="Appearancetxt" aria-describedby="elementAppearanceDescribe" required placeholder="Enter Appearance">    
+                <small id="elementAppearanceDescribe" class="form-text text-muted">Enter Element Appearance under STP, for instance, Copper looks like 	
+                    <b>	red-orange metallic luster.</b> <i>source : <a href="https://en.wikipedia.org/wiki/Copper">Copper</a></i>
+                </small>            
+            </div>
+                        
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-secondary addUserModalClosebtn" data-dismiss="modal">Close</button>                                                
+          </form>
+    </div>
+
+    <br/><br/><br/><br/>
+    
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - List Member - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>   
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->    
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBf2yv8H1eINwhV7TIKQ31l8LAyVTHbPNY",
+        authDomain: "https://elements-13c4a-default-rtdb.firebaseio.com/",
+        projectId: "elements-13c4a",
+        storageBucket: "elements-13c4a.appspot.com",
+        messagingSenderId: "447148203295",
+        appId: "1:447148203295:web:d1f64932b0fb3d83bda42a"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="main.js" ></script>
+</body>
+</html>
