@@ -75,7 +75,7 @@ a.navbar-brand {
 
   .earthElementContainer{
     padding: 10px;
-    flex-grow: 1;
+    flex-grow: 0;
     flex-basis:auto;
     background-color: #EBEBD3;
     border-radius: 3px;
