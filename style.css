@@ -103,7 +103,7 @@ a.navbar-brand {
 
   .hide-text {    
     white-space: nowrap; 
-    width: 60px; 
+    max-width: 60px; 
     overflow: hidden;
     text-overflow: ellipsis;     
   }
