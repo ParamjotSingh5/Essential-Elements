@@ -84,6 +84,11 @@ a.navbar-brand {
     min-width: 106px;
   }
 
+  .elementPropWrapper{
+    display: flex;
+    justify-content: space-between;
+  }
+
   .elementAtomicNumber{
     color: #1446A0;
   }
@@ -96,8 +101,7 @@ a.navbar-brand {
     color: #3C3C3B;
   }
 
-  .hide-text {
-    display: inline-block;
+  .hide-text {    
     white-space: nowrap; 
     width: 60px; 
     overflow: hidden;
