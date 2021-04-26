@@ -80,6 +80,7 @@ function elementTemplate(elementData){
     outerDivNode.setAttribute("title",elementTooltipTemplate(elementData));   
     
     var middleDivNode1 = document.createElement("DIV");
+    middleDivNode1.classList.add("elementPropWrapper");
 
     var atomicNumberSpan = document.createElement("SPAN");
     atomicNumberSpan.innerHTML = elementData.AtomicNumber;
