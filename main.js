@@ -25,7 +25,8 @@ function removeExistingUserRows(){
 }
 
 function initliseTooltips(){
-    $('[data-toggle="tooltip"]').tooltip();
+    //$('[data-toggle="tooltip"]').tooltip();
+    $('[data-toggle="popover"]').popover()
 }
 
 function sortElementsButtonClick(sortingIdentifeir){
@@ -64,20 +65,53 @@ function sortAccordingToIdentifeir(sortingIdentifeir, dataArray){
 
 function elementTooltipTemplate(elementData){
     var tooltipContent = "";
-    for (const [key, value] of Object.entries(elementData)) {
-       tooltipContent += `<em>${key}</em> : <b>${value}</b> <br/>`;
+       
+    var elementPropArray = Object.entries(elementData);
+
+    var propData = search("Discoverer", elementPropArray);
+    if(propData){        
+        tooltipContent += `<em>${propData[0]}</em> : <b>${propData[1]}</b> <br/>`;
     }
+
+    propData = search("Type", elementPropArray);
+    if(propData){
+        tooltipContent += `<em>${propData[0]}</em> : <b>${propData[1]}</b> <br/>`;
+    }               
+
+    // Show More Button 
+    tooltipContent += `<br/>
+        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#elementDetailsModal"
+        onclick="renderDetailModalForElement(this, ${elementData.AtomicNumber})">Details</button>`;
+
     return tooltipContent;
+}
+
+function search(nameKey, myArray){
+    for (var i=0; i < myArray.length; i++) {
+        if (myArray[i][0] === nameKey) {
+            return myArray[i];
+        }
+    }
+}
+
+function clickEventElementsForRythming(Element){
+    var isAlreadySelected = Element.getAttribute("data-elementSelectedforrythming");
+    if(isAlreadySelected){
+        Element.classList.remove("selectedElementsForRythimg");
+        Element.removeAttribute("data-elementSelectedforrythming");
+    }
+    else{
+        Element.classList.add('selectedElementsForRythimg');
+        Element.setAttribute("data-elementSelectedforrythming", "elementSelectedForRythming");
+    }  
 }
 
 function elementTemplate(elementData){
     
     var outerDivNode = document.createElement("DIV");
     outerDivNode.classList.add("earthElementContainer");
-    outerDivNode.setAttribute("data-toggle","tooltip");
-    outerDivNode.setAttribute("data-html","true");
-    outerDivNode.setAttribute("data-placement","right");
-    outerDivNode.setAttribute("title",elementTooltipTemplate(elementData));   
+    
+    outerDivNode.setAttribute("onclick", "clickEventElementsForRythming(this)")
     
     var middleDivNode1 = document.createElement("DIV");
     middleDivNode1.classList.add("elementPropWrapper");
@@ -94,27 +128,40 @@ function elementTemplate(elementData){
     middleDivNode1.appendChild(atomicMassSpan);
 
     var middleDivNode2 = document.createElement("DIV");
+    middleDivNode2.classList.add("elementPropWrapper");
 
     var symbolH2 = document.createElement("H2");
     symbolH2.innerHTML = elementData.Symbol;
     symbolH2.classList.add("elementSymbol");
     middleDivNode2.appendChild(symbolH2);
     
+    var icon = document.createElement("I");
+    icon.classList.add("bi");
+    icon.classList.add("bi-info-circle");    
+    icon.classList.add("defaultCursor");
+
+    icon.setAttribute("tabindex", elementData.AtomicNumber);
+    icon.setAttribute("data-toggle","popover");
+    icon.setAttribute("data-html","true");
+    icon.setAttribute("data-title", elementTooltipHeader(elementData.Element));
+    icon.setAttribute("data-placement","right");
+    icon.setAttribute("data-content", elementTooltipTemplate(elementData));    
+    icon.setAttribute('data-state', 'hover');
+    icon.setAttribute('data-trigger', 'focus');
+    icon.setAttribute('onmouseenter', "enterShow(this)");         
+    icon.setAttribute('onmouseleave', "leaveShow(this)");         
+    icon.setAttribute('data-delay', '200');
+
+    middleDivNode2.appendChild(icon);
+
     outerDivNode.appendChild(middleDivNode1);
     outerDivNode.appendChild(middleDivNode2);
-
-    // let baseElementTemplate =  `
-    //     <div class="elementCustom">
-    //         <div>                
-    //           <span>${elementData.AtomicNumber}</span>
-    //           <span>${elementData.AtomicMass}</span>
-    //         </div>
-    //         <div>                
-    //             <h2>${elementData.Symbol}</h2>
-    //         </div>
-    //     </div>`;
-
+    
     return outerDivNode;
+}
+
+function elementTooltipHeader(elementName){
+    return `${elementName}`;
 }
 
 function renderElement(elementData, index){    
@@ -122,3 +169,4 @@ function renderElement(elementData, index){
     var currentElementNode = elementTemplate(elementData);
     ElementContainer.appendChild(currentElementNode);
 }
+
