@@ -65,7 +65,7 @@ function sortAccordingToIdentifeir(sortingIdentifeir, dataArray){
 
 function elementTooltipTemplate(elementData){
     var tooltipContent = "";
-       
+
     var elementPropArray = Object.entries(elementData);
 
     var propData = search("Discoverer", elementPropArray);
@@ -135,24 +135,24 @@ function elementTemplate(elementData){
     symbolH2.classList.add("elementSymbol");
     middleDivNode2.appendChild(symbolH2);
     
-    var icon = document.createElement("I");
-    icon.classList.add("bi");
-    icon.classList.add("bi-info-circle");    
-    icon.classList.add("defaultCursor");
+    // var icon = document.createElement("I");
+    // icon.classList.add("bi");
+    // icon.classList.add("bi-info-circle");    
+    // icon.classList.add("defaultCursor");
 
-    icon.setAttribute("tabindex", elementData.AtomicNumber);
-    icon.setAttribute("data-toggle","popover");
-    icon.setAttribute("data-html","true");
-    icon.setAttribute("data-title", elementTooltipHeader(elementData.Element));
-    icon.setAttribute("data-placement","right");
-    icon.setAttribute("data-content", elementTooltipTemplate(elementData));    
-    icon.setAttribute('data-state', 'hover');
-    icon.setAttribute('data-trigger', 'focus');
-    icon.setAttribute('onmouseenter', "enterShow(this)");         
-    icon.setAttribute('onmouseleave', "leaveShow(this)");         
-    icon.setAttribute('data-delay', '200');
+    // icon.setAttribute("tabindex", elementData.AtomicNumber);
+    // icon.setAttribute("data-toggle","popover");
+    // icon.setAttribute("data-html","true");
+    // icon.setAttribute("data-title", elementTooltipHeader(elementData.Element));
+    // icon.setAttribute("data-placement","right");
+    // icon.setAttribute("data-content", elementTooltipTemplate(elementData));    
+    // icon.setAttribute('data-state', 'hover');
+    // icon.setAttribute('data-trigger', 'focus');
+    // icon.setAttribute('onmouseenter', "enterShow(this)");         
+    // icon.setAttribute('onmouseleave', "leaveShow(this)");         
+    // icon.setAttribute('data-delay', '200');
 
-    middleDivNode2.appendChild(icon);
+    // middleDivNode2.appendChild(icon);
 
     outerDivNode.appendChild(middleDivNode1);
     outerDivNode.appendChild(middleDivNode2);

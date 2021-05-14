@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Giga&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alatsi&display=swap');
+
 a.navbar-brand {
     white-space: normal;
     text-align: center;
@@ -118,3 +122,46 @@ a.navbar-brand {
   .defaultCursor{
     cursor: default;
   }
+
+  .RhymingWordsContainer{
+    background-color: #f8f5f1;
+  }
+
+  .SelectedElementWords{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 30px;
+  }
+  .earthElementContainer1{
+    padding: 10px;
+    flex-grow: 0;
+    flex-basis:auto;
+    background-color: #f8a488;
+    border-radius: 3px;
+    margin: 10px;    
+    min-width: 106px;
+    cursor: text;
+  }
+
+  .generatedElementRhythm{
+    font-family: 'Alatsi', sans-serif;
+    font-size: 65px;
+    text-transform: capitalize;    
+    color: black;
+    text-align: center;    
+  
+    background-clip: text;     
+    background-position: center;
+  }
+   .wordSelectorListEachElements{
+    padding: 10px;
+    flex-grow: 0;
+    flex-basis:auto;
+    margin: 10px;    
+    min-width: 106px;    
+   }
+
+   .textAlignCenter{
+    text-align: center;
+   }

@@ -46,5 +46,6 @@ var appendElementDetailsTBody = function(elementData, index){
 }
 
 var getElementByAtomicNumber = function(atomicNumber){
-    return AllElements.find(x=> x.AtomicNumber === atomicNumber);
+    var pickedElement = AllElements.find(x=> x.AtomicNumber === parseInt(atomicNumber));
+    return pickedElement;
 }

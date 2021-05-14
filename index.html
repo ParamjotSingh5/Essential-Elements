@@ -29,22 +29,58 @@
     </header>
 
     <div class="container">
-        <div class="card ">
-            <h3 class="card-header">Sorting</h3>
-            <div class="card-body">
-              <h5 class="card-title">Sort Element By Their Properties.</h5>
-              <p class="card-text">Click one of the following button to sort the elements accordingly.</p>
-              <div>
-                <button class="btn" style="background-color: #4DFFF3;" onclick="sortElementsButtonClick(0)">Atomic Symbol</button>
-                <button class="btn" style="background-color: #52FFB8;" onclick="sortElementsButtonClick(1)">Atomic Mass</button>
-                <button class="btn" style="background-color: #539987;" onclick="sortElementsButtonClick(2)">Atomic Denisity</button>
-                <button class="btn" style="background-color: #EFB0A1;" onclick="sortElementsButtonClick(3)">Atomic Number</button>                
-                <button class="btn" style="background-color: #7FB685;" onclick="sortElementsButtonClick(4)">Discovery Year</button>                
-              </div>
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSorting" aria-expanded="false" aria-controls="collapseSorting">
+                Sorting
+            </button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseRhythming" aria-expanded="false" aria-controls="collapseRhythming">
+                Start Rythming
+            </button>
+        </p>
+        <div class="collapse" id="collapseSorting">
+            <div class="card">          
+                <h3 class="card-header">Sorting</h3>                      
+                <div class="card-body">
+                    <h5 class="card-title">Sort Element By Their Properties.</h5>
+                    <p class="card-text">Click one of the following button to sort the elements accordingly.</p>
+                    <div>
+                    <button class="btn" style="background-color: #4DFFF3;" onclick="sortElementsButtonClick(0)">Atomic Symbol</button>
+                    <button class="btn" style="background-color: #52FFB8;" onclick="sortElementsButtonClick(1)">Atomic Mass</button>
+                    <button class="btn" style="background-color: #539987;" onclick="sortElementsButtonClick(2)">Atomic Denisity</button>
+                    <button class="btn" style="background-color: #EFB0A1;" onclick="sortElementsButtonClick(3)">Atomic Number</button>                
+                    <button class="btn" style="background-color: #7FB685;" onclick="sortElementsButtonClick(4)">Discovery Year</button>                
+                    </div>
+                </div>
             </div>
+        </div>                   
+        <br/>       
+        <div class="collapse" id="collapseRhythming">
+            <div class="card">
+                <h3 class="card-header">Create piece of song out of element names.</h3>
+                <div class="card-body">
+                  <h5 class="card-title">Select Elements and click on <b>Rhythm Now</b> button to see the magic.</h5>
+                  <p class="card-text">How this works: To create ryhme, try to change words from their respective dropdown lists.
+                  </p>
+                  <p> This Service uses <a href="https://www.datamuse.com/api/"><em>Datamuse API</em></a> </p>
+                  <div>
+                    <button class="btn" data-toggle="modal" data-target="#" style="background-color: #4DFFF3;" onclick="rhythmNowButtonClick()">Rhythm Now <i class="bi bi-music-note-beamed"></i></button>                
+                  </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+    <br/>
+    <div class="container">
+        <div class="row justify-content-center">   
+            <div class="generatedElementRhythm"></div>
         </div>
-        <br/>
-
+        <div class="row justify-content-center wordSelectorListConatiner">
+            
+        </div>
+    </div>
+    
+    <br/>
+    <div class="container">
         <div class="row">
             <div class="column">
                 <div class="containerCustom">        
@@ -52,6 +88,8 @@
             </div>
         </div>
     </div>
+    
+    
    
     <div class="modal" id="elementDetailsModal"  tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -65,8 +103,8 @@
                 <div class="modal-body">                    
                     <div class="card" style="max-width: 540px;">       
                         <div class="card-header">
-                            <!-- <img src="elementsImages/Hydrogen_1.jpg" class="card-img-top" alt=""">                                                                       
-                            <small class="text-muted">Image Source : <a href="https://commons.wikimedia.org/w/index.php?curid=10942422" title="By Alchemist-hp (talk) (www.pse-mendelejew.de) - Own work, FAL">Link</a> </small> -->
+                            <img src="elementsImages/Hydrogen_1.jpg" class="card-img-top" alt=""">                                                                       
+                            <small class="text-muted">Image Source : <a href="https://commons.wikimedia.org/w/index.php?curid=10942422" title="By Alchemist-hp (talk) (www.pse-mendelejew.de) - Own work, FAL">Link</a> </small>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title elementDetailsCardTitle">Element Name</h5>
@@ -90,6 +128,9 @@
     </div>
 
     <footer class="border-top footer text-muted">
+        <p>
+            This service uses the <a href="https://www.datamuse.com/api/">Datamuse API</a> on a vocabulary of approximately 10 million titles.
+        </p>
         <div class="container">
             &copy; 2021 - List Member - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
@@ -118,10 +159,15 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
     
+    <script src="https://use.fontawesome.com/5af1235904.js"></script>
+    
+    <script src="elementPhrases.js"></script>
     <script src="pinPopover.js"></script>
     <script src="main.js" ></script>    
     <script src="elementDetails.js"></script>
+    <script src="wordAPI.js"></script>
+    <script src="rhythmNow.js"></script>
 </body>
 </html>
