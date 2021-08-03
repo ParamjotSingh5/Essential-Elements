@@ -14,9 +14,12 @@ This tool will help students to create a mnemonic of their own, the one they rem
 5. You will see a skit in big bold letters.
 6. You can customize the skit words using dropdown lists right below the chemical symbols.
 
-### Example: 
+<b>Tip</b>: Try to generate a small story while customizing words, it will be fun.
 
-I have generated a mnemonic using the first 5 elements.
-Hit Hero Like Beat Box
- 
+### Examples: 
+
+##### 1. Hit Hero Like Beat Box 
  ![generated a mnemonic using the first 5 elements](https://raw.githubusercontent.com/ParamjotSingh5/Essential-Elements/main/first5Elementsmnemonics.png)
+
+##### 2. Hew Hear Lion Beat Bet Car Not Out Far 
+![generated a mnemonic using the first 5 elements](https://raw.githubusercontent.com/ParamjotSingh5/Essential-Elements/main/first9elementsmnemonics.png)
