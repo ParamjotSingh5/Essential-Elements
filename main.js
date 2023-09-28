@@ -14,6 +14,7 @@ function getAllElements(){
         initliseTooltips();
         document.getElementById('dataLoaderDiv').style.display='none';
     }).catch(function () {
+        //error should hide loader icon
         document.getElementById('dataLoaderDiv').style.display='none';
     } );
 
