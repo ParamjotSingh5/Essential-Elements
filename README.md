@@ -1,8 +1,6 @@
 # Essential-Elements
  
-Understanding high school chemistry is not an easy task. Students have to study rules and protocols, that chemical elements often follow, otherwise, there are special cases named after scientists that explain why this protocol isn't followed in this scenario, so there are a lot of special cases in chemistry. I had a bad time with organic chemistry in my school.
-
-On top of that, the order and names of the chemical elements also needed to be kept in mind. However, there were different mnemonics, that helped me with remembering the order of the elements.
+A learning/fun project to learn about JavaScript concepts, browser controls, events, objects (DOM, BOM), resource loading, network requests, Promises, and async/await.
 
 This tool will help students to create a mnemonic of their own, the one they remember easily.
 
